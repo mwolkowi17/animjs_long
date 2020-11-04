@@ -101,7 +101,7 @@
             imageObj.onload = function () {
                 var blob = new Konva.Sprite({
                     x: 568,
-                    y: 290,
+                    y: 292,
                     image: imageObj,
                     animation: 'idle',
                     animations: animations,
@@ -297,9 +297,11 @@
             // tworzenie obiektów sceny
             var komora = new Konva.Image({
                 image: images.komora,
-                x: 568,
-                y: 290,
-                opacity: 0
+                x: 562,
+                y: 286,
+                opacity: 1,
+                scaleX:1.1,
+                scaleY:1.1,
             });
 
             var cd = new Konva.Image({
@@ -881,12 +883,13 @@
 
             //=====================================
             // podpięcie obiektów do warst
+            komoralayer.add(komora);
             backgroundlayer.add(backgroundImage);
             finalLayer.add(finalbackground);
             finalLayer.add(resetButtonEnd);
             startLayer.add(startBackground);
             startLayer.add(startButton);
-            layer.add(komora);
+            //layer.add(komora);
             layer.add(cd);
             layer.add(ps);
             layer.add(pe);
@@ -904,6 +907,7 @@
             layer.add(text);
 
             // podpięcie warstw do sceny
+            stage.add(komoralayer)
             stage.add(spritelayer);
             stage.add(backgroundlayer);
             stage.add(layer);
@@ -932,6 +936,7 @@
         });
 
         // uwtworzenie warstw
+        var komoralayer = new Konva.Layer();
         var layer = new Konva.Layer();
         var backgroundlayer = new Konva.Layer();
         var spritelayer = new Konva.Layer();
@@ -2810,7 +2815,7 @@
         // podanie źródeł asset'ów
         var sources = {
             cd: 'assets/PC.png',
-            komora: 'assets/komora.png',
+            komora: 'assets/komora2.png',
             backImg: 'assets/BG-kotlownia-01_alfa.png',
             ps: 'assets/PS.png',
             pe: 'assets/PE.png',
